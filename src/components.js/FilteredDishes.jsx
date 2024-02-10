@@ -50,11 +50,6 @@ function FilteredDishes(props) {
     getOnlyOneDish();
   }, []);
 
- 
-
-
-
-
   // Lets show only single dishes
   let maxItem = 4;//limit no.of beef items when loading then page
   let singleDishItems = singleDish.map((item , index ) => {
@@ -70,6 +65,7 @@ function FilteredDishes(props) {
 
   //show Dishes on click
   function showFilterDishesHandler(category) {
+    // alert("")
     setSingleDish([]);
     setActiveDish(category);
 
@@ -89,15 +85,16 @@ function FilteredDishes(props) {
   //Lets Show all the Categories
   let allcategories = menuCategory.map((item) => {
     return (
-      <li
-      // key={item.id}
-        className={item.strCategory == activeDish ? "active" : ""}
-        onClick={() => {
-          showFilterDishesHandler(item.strCategory);
-        }}
-      >
-        {item.strCategory}
-      </li>
+      // <li
+      // // key={item.id}
+      //   className={item.strCategory === activeDish ? "active" : ""}
+      //   onClick={() => showFilterDishesHandler(item.strCategory)}
+      // >
+      //   {item.strCategory}
+      // </li>
+
+      <li onClick={() => showFilterDishesHandler(item.strCategory)}> {item.strCategory}</li>
+
     );
   });
 
@@ -118,7 +115,7 @@ function FilteredDishes(props) {
           <ul className="flex flex-wrap gap-25">
             {singleDishItems}  
 
-            {singleDishItems !=0 || filteredDishes.length != 0 ? showTheseDishesNow :
+            {singleDishItems !== 0 || filteredDishes.length !== 0 ? showTheseDishesNow :
                 <div className="alert">
                 <h3>Sorry. No items found </h3>
                 <h4>Please try another dishes</h4>

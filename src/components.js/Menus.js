@@ -35,7 +35,10 @@ function Menus() {
 
       </Routes> */}
       <Routes>
-  <Route path="/" element={<AllMenus><SpecialDishes /><FilteredDishes /></AllMenus>} />
+  <Route path="/" element={<AllMenus>
+    <SpecialDishes />
+    <FilteredDishes />
+    </AllMenus>} />
   <Route path="/checkout" element={<Checkout />} />
 </Routes>
 </AppProvider>
